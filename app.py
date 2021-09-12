@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+# from sklearn.linear_model import base
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -34,4 +35,4 @@ def predict_api():
     return jsonify(output)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)
